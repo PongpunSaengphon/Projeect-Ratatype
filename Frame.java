@@ -35,15 +35,15 @@ public class Frame extends JFrame implements ActionListener, KeyListener
 	{
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); 
-		SCREEN_WIDTH=720;
-		SCREEN_HEIGHT=400;
+		SCREEN_WIDTH=680;
+		SCREEN_HEIGHT=480;
 		this.setSize(SCREEN_WIDTH,SCREEN_HEIGHT);
 		this.setVisible(false); 
 		this.setLocationRelativeTo(null); 
 		
 		button=new JButton("Start");
-		button.setFont(new Font("MV Boli",Font.BOLD,30));
-		button.setForeground(Color.BLUE);
+		button.setFont(new Font("JasmineUPC",Font.BOLD,45));
+		button.setForeground(Color.RED);
 		button.setVisible(true);
 		button.addActionListener(this);
 		button.setFocusable(false);
@@ -65,7 +65,7 @@ public class Frame extends JFrame implements ActionListener, KeyListener
 	}
 	public void draw(Graphics g)
 	{
-		g.setFont(new Font("MV Boli", Font.BOLD, 25));
+		g.setFont(new Font("JasmineUPC", Font.BOLD, 35));
 		
 		if(running)
 		{

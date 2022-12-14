@@ -8,23 +8,24 @@ public class Menu{
     private JPanel p1, p2, p3, p4, pRule;
     private JLabel lbl1, lblRule, lblRule2, lblRule3, lblRule4, lblRule5, lblRule6;
     private JButton start, rule, exit;
-
+    
     public Menu() {
         //   Menu View
         fr = new JFrame("Catatype");
         fr.setSize(500, 370);
+        fr.setResizable(false);
         fr.setLocationRelativeTo(null);
-
         lbl1 = new JLabel("Catatype");
+        lbl1.setForeground(Color.ORANGE);
         lbl1.setFont(new Font("JasmineUPC",Font.BOLD,140));
-        
+
         start = new JButton("Start");
         start.setPreferredSize(new Dimension(150, 50));
-        start.setFont(new Font("JasmineUPC",Font.BOLD,40));
+        start.setFont(new Font("JasmineUPC",Font.BOLD,35));
         rule = new JButton("Rule");
-        rule.setFont(new Font("JasmineUPC",Font.BOLD,40));
+        rule.setFont(new Font("JasmineUPC",Font.BOLD,35));
         exit = new JButton("Exit");
-        exit.setFont(new Font("JasmineUPC",Font.BOLD,40));
+        exit.setFont(new Font("JasmineUPC",Font.BOLD,35));
         start.setFocusable(false);
         rule.setFocusable(false);
         exit.setFocusable(false);
@@ -56,16 +57,17 @@ public class Menu{
         //   Rule View
         frRule = new JFrame("Rule");
         frRule.setSize(510, 570);
+        frRule.setResizable(false);
         frRule.setLocationRelativeTo(null);
         
         pRule = new JPanel();
         pRule.setLayout(new BorderLayout());
         
         lblRule = new JLabel("Rule"); lblRule.setFont(new Font("JasmineUPC",Font.BOLD,120));
-        lblRule2 = new JLabel("<html>1.When the Start button is clicked, the program starts.<br/><br/>"
-                + "2.The program will display a series of messages on the screen. The user must type in the correct letters.<br/><br/>"
-                + "3.If the user has typed correctly, the letter will turn green and the next letter can be typed. But if it is not typed correctly, the next letter cannot be typed.<br/><br/>"
-                + "4.When typing all the letters The program will show you the speed of typing per word possible and the accuracy of typing. and represents the level of typing.</html>"); lblRule2.setFont(new Font("JasmineUPC",Font.BOLD,35));
+        lblRule2 = new JLabel("<html>1. When the Start button is clicked, the program starts.<br/><br/><br/>"
+                + "2. The program will display a series of messages on the screen. The user must type in the correct letters.<br/><br/><br/>"
+                + "3. If the user has typed correctly, the letter will turn green and the next letter can be typed. But if it is not typed correctly, the next letter cannot be typed.<br/><br/><br/>"
+                + "4. When typing all the letters The program will show you the speed of typing per word possible and the accuracy of typing. and represents the level of typing.</html>"); lblRule2.setFont(new Font("JasmineUPC",Font.ROMAN_BASELINE,30));
                 
         lblRule.setHorizontalAlignment(JLabel.CENTER);
         
