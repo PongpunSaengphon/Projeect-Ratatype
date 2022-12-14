@@ -30,16 +30,15 @@ public class Frame extends JFrame implements ActionListener, KeyListener
 	
 	JButton button; 
 	Timer timer;
-	JLabel label; 
 	
 	public Frame()
 	{
 		this.setLayout(new BorderLayout());
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); 
 		SCREEN_WIDTH=720;
 		SCREEN_HEIGHT=400;
 		this.setSize(SCREEN_WIDTH,SCREEN_HEIGHT);
-		this.setVisible(true); 
+		this.setVisible(false); 
 		this.setLocationRelativeTo(null); 
 		
 		button=new JButton("Start");
@@ -49,16 +48,7 @@ public class Frame extends JFrame implements ActionListener, KeyListener
 		button.addActionListener(this);
 		button.setFocusable(false);
 		
-		label=new JLabel();
-		label.setText("Click the Start Button");
-		label.setFont(new Font("MV Boli",Font.BOLD,30));
-		label.setVisible(true);
-		label.setOpaque(true);
-		label.setHorizontalAlignment(JLabel.CENTER); 
-		label.setBackground(Color.lightGray);
-		
 		this.add(button, BorderLayout.SOUTH);
-		this.add(label, BorderLayout.NORTH);
 		this.getContentPane().setBackground(Color.WHITE);
 		this.addKeyListener(this);
 		this.setFocusable(true); 
@@ -242,4 +232,6 @@ public class Frame extends JFrame implements ActionListener, KeyListener
 		}
 		return(toReturn); 
 	}
+    public JFrame getFrameTyping() {return this;}
+        
 }
