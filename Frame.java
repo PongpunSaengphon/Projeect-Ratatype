@@ -5,7 +5,6 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Random;
 
-@SuppressWarnings("serial")
 public class Frame extends JFrame implements ActionListener, KeyListener
 {
 	String passage=""; //Passage we get
@@ -35,15 +34,15 @@ public class Frame extends JFrame implements ActionListener, KeyListener
 	{
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); 
-		SCREEN_WIDTH=680;
-		SCREEN_HEIGHT=480;
+		SCREEN_WIDTH=720;
+		SCREEN_HEIGHT=400;
 		this.setSize(SCREEN_WIDTH,SCREEN_HEIGHT);
 		this.setVisible(false); 
 		this.setLocationRelativeTo(null); 
 		
-		button=new JButton("Start");
-		button.setFont(new Font("JasmineUPC",Font.BOLD,45));
-		button.setForeground(Color.RED);
+		button=new JButton("Start Typing");
+		button.setFont(new Font("JasmineUPC",Font.BOLD,80));
+		button.setForeground(Color.BLACK);
 		button.setVisible(true);
 		button.addActionListener(this);
 		button.setFocusable(false);
@@ -53,7 +52,7 @@ public class Frame extends JFrame implements ActionListener, KeyListener
 		this.addKeyListener(this);
 		this.setFocusable(true); 
 		this.setResizable(false);
-		this.setTitle("Typing Test");
+		this.setTitle("Typing...");
 		this.revalidate(); 
 	}
 
@@ -65,7 +64,7 @@ public class Frame extends JFrame implements ActionListener, KeyListener
 	}
 	public void draw(Graphics g)
 	{
-		g.setFont(new Font("JasmineUPC", Font.BOLD, 35));
+		g.setFont(new Font("MV Boli", Font.BOLD, 25));
 		
 		if(running)
 		{
@@ -119,7 +118,7 @@ public class Frame extends JFrame implements ActionListener, KeyListener
 				message="You are an Elite Typist";
 			
 			FontMetrics metrics=getFontMetrics(g.getFont());
-			g.setColor(Color.BLUE);
+			g.setColor(Color.BLACK);
 			g.drawString("Typing Test Completed!", (SCREEN_WIDTH-metrics.stringWidth("Typing Test Completed!"))/2, g.getFont().getSize()*6);
 			
 			g.setColor(Color.BLACK);
@@ -234,4 +233,6 @@ public class Frame extends JFrame implements ActionListener, KeyListener
 	}
     public JFrame getFrameTyping() {return this;}
         
+    public int getWPM() {return WPM;}
+    public void setWPM(int WPM) {this.WPM = WPM;}
 }
