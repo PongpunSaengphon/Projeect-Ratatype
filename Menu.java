@@ -1,11 +1,11 @@
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.table.*;
 import javax.swing.*;
 
 public class Menu {
-
+    private Frame frame;
+    private ScoreModel scoremodel;
     private JFrame fr, frScore, frAdd;
     private JTextField Addname;
     private JPanel p1, p2, p3, p4, pScore, pAdd, pAdd2;
@@ -15,22 +15,24 @@ public class Menu {
     private JTable table;
 
     public Menu() {
+        frame = new Frame();
+        scoremodel = new ScoreModel();
         //   Menu View
         fr = new JFrame("Catatype");
         fr.setSize(500, 370);
         fr.setLocationRelativeTo(null);
         fr.setResizable(false);
-
+frame.getContentPane().setBackground(Color.BLUE);
         lbl1 = new JLabel("Catatype");
-        lbl1.setFont(new Font("JasmineUPC", Font.BOLD, 140));
+        lbl1.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 90));
 
         start = new JButton("Start");
         start.setPreferredSize(new Dimension(150, 50));
-        start.setFont(new Font("JasmineUPC", Font.BOLD, 40));
+        start.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
         score = new JButton("Score");
-        score.setFont(new Font("JasmineUPC", Font.BOLD, 40));
+        score.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
         exit = new JButton("Exit");
-        exit.setFont(new Font("JasmineUPC", Font.BOLD, 40));
+        exit.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
         start.setFocusable(false);
         score.setFocusable(false);
         exit.setFocusable(false);
@@ -68,8 +70,8 @@ public class Menu {
         pScore = new JPanel();
         pScore.setLayout(new BorderLayout());
 
-        lblScore = new JLabel("Score Board");
-        lblScore.setFont(new Font("JasmineUPC", Font.BOLD, 120));
+        lblScore = new JLabel("ScoreBoard");
+        lblScore.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
 
         lblScore.setHorizontalAlignment(JLabel.CENTER);
 
@@ -80,6 +82,7 @@ public class Menu {
         pScore.add(scrollPane, BorderLayout.CENTER);
 // Table
         table = new JTable();
+        table.getTableHeader().setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 15));
         scrollPane.setViewportView(table);
 // Model for Table
         DefaultTableModel model = (DefaultTableModel) table.getModel();
@@ -88,12 +91,12 @@ public class Menu {
         model.addColumn("Name");
         model.addColumn("WPM");
 // Data Row
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 25; i++) {
             model.addRow(new Object[0]);
-            model.setValueAt(i + 1, i, 0);
-            model.setValueAt("Data Col 1", i, 1);
-            model.setValueAt("Data Col 2", i, 2);
-            model.setValueAt("Data Col 3", i, 3);
+            //model.setValueAt(scoremodel.getFrame().get(i).getDate(), i, 0);
+            //model.setValueAt(scoremodel.getFrame().get(i).getTime(), i, 1);
+            //model.setValueAt(scoremodel.getFrame().get(i).getName(), i, 2);
+            //model.setValueAt(scoremodel.getFrame().get(i).getWPM(), i, 3);
         }
 
         frScore.add(pScore);
@@ -111,11 +114,11 @@ public class Menu {
 
         lblAdd = new JLabel("Please Enter Your Name");
         lblAdd.setHorizontalAlignment(JLabel.CENTER);
-        lblAdd.setFont(new Font("JasmineUPC", Font.BOLD, 35));
+        lblAdd.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
         Addname = new JTextField();
 
         Add = new JButton("Add");
-        Add.setFont(new Font("JasmineUPC", Font.BOLD, 35));
+        Add.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 15));
         Add.setFocusable(false);
 
         pAdd.add(lblAdd);
@@ -185,6 +188,10 @@ public class Menu {
 
     public void setName(JTextField Addname) {
         this.Addname = Addname;
+    }
+    
+     public JTable getTable() {
+        return table;
     }
 
 }

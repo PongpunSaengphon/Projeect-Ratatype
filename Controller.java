@@ -6,8 +6,6 @@ public class Controller implements ActionListener {
     private Menu menu;
     private Frame frame;
 
-    private String name;
-
     public Controller() {
         menu = new Menu();
         frame = new Frame();
@@ -27,9 +25,7 @@ public class Controller implements ActionListener {
         }
 
         if (e.getSource().equals(menu.getAddname())) {
-            name = menu.getName().getText();
-            if (name.length() > 0) {
-                name = "";
+            if (menu.getName().getText().length() > 0) {
                 menu.getFrameAdd().setVisible(false);
                 menu.getName().setText("");
                 frame.getFrameTyping().setVisible(true);

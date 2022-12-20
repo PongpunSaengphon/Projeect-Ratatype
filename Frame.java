@@ -1,40 +1,35 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Random;
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Frame extends JFrame implements ActionListener, KeyListener {
 
-    String passage = ""; //Passage we get
-    String typedPass = ""; //Passage the user types
-    String message = ""; //Message to display at the end of the TypingTest
 
-    int typed = 0; //typed stores till which character the user has typed
-    int count = 0;
-    int WPM;
+    private String passage = ""; //Passage we get
+    private String typedPass = ""; //Passage the user types
+    private String message = ""; //Message to display at the end of the TypingTest
 
-    double start;
-    double end;
-    double elapsed;
-    double seconds;
+    private int typed = 0; //typed stores till which character the user has typed
+    private int count = 0;
+    private int WPM;
 
-    boolean running; //If the person is typing
-    boolean ended; //Whether the typing test has ended or not
+    private double start;
+    private double end;
+    private double elapsed;
+    private double seconds;
 
-    final int SCREEN_WIDTH;
-    final int SCREEN_HEIGHT;
-    final int DELAY = 100;
+    private boolean running; //If the person is typing
+    private boolean ended; //Whether the typing test has ended or not
 
-    JButton button;
-    Timer timer;
+    private final int SCREEN_WIDTH;
+    private final int SCREEN_HEIGHT;
+    private final int DELAY = 100;
 
-    private LocalDate date;
-    private LocalTime time;
+    private JButton button;
+    private Timer timer;
 
     public Frame() {
         this.setLayout(new BorderLayout());
@@ -46,7 +41,7 @@ public class Frame extends JFrame implements ActionListener, KeyListener {
         this.setLocationRelativeTo(null);
 
         button = new JButton("Start Typing");
-        button.setFont(new Font("JasmineUPC", Font.BOLD, 80));
+        button.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 50));
         button.setForeground(Color.BLACK);
         button.setVisible(true);
         button.addActionListener(this);
@@ -59,11 +54,6 @@ public class Frame extends JFrame implements ActionListener, KeyListener {
         this.setResizable(false);
         this.setTitle("Typing...");
         this.revalidate();
-
-        LocalDate date1 = LocalDate.now();
-        date = date1;
-        LocalTime time1 = LocalTime.now();
-        time = time1;
     }
 
     @Override
@@ -72,8 +62,8 @@ public class Frame extends JFrame implements ActionListener, KeyListener {
         draw(g);
     }
 
-    public void draw(Graphics g) {
-        g.setFont(new Font("MV Boli", Font.BOLD, 25));
+    public void draw(Graphics g) {  
+        g.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 25));
 
         if (running) {
             //This will put our passage on the screen 
@@ -136,6 +126,7 @@ public class Frame extends JFrame implements ActionListener, KeyListener {
 
             timer.stop();
             ended = false;
+            
         }
     }
 
@@ -242,9 +233,4 @@ public class Frame extends JFrame implements ActionListener, KeyListener {
     public int getWPM() {return WPM;}
     public void setWPM(int WPM) {this.WPM = WPM;}
     
-    public LocalDate getDate() {return date;}
-    public void setDate(LocalDate Date) {this.date = Date;}
-    
-    public LocalTime getTime() {return time;}
-    public void setTime(LocalTime Time) {this.time = Time;}
 }
